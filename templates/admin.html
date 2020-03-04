@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ray's blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="../dist/lib/bootstrap-material-design/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="../dist/css/admin.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Admin</a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/rooms">
+                                Room
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/connections">
+                                Connection
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="/wstool" target="_blank">
+                                Websocket Tool
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                <h2>Rooms</h2>
+                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#newRoomModal">New
+                    Room
+                </button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Hash</th>
+                            <th>Name</th>
+                            <th>Max Client</th>
+                            <th>Now Client</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="rooms-table">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+
+        <script src="../dist/lib/jquery/jquery.min.js"></script>
+        <script src="../dist/lib/popper/popper.min.js"></script>
+        <script src="../dist/lib/bootstrap-material-design/js/bootstrap-material-design.min.js"></script>
+</body>
+
+</html>

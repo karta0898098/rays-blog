@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ray's blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="../dist/lib/bootstrap-material-design/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="../dist/css/main.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar sticky-top bg-primary">
+        <div class="brand-position">
+            <a class="navbar-brand brand-font" href="/">
+                Ray's blog
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="content">
+        <div class="articles">
+            <div class="article-detail">
+
+                <h1>{{.article.Title}}</h1>
+                <p>{{.article.Content}}</p>
+            </div>
+
+
+            <div class="article-pagination">
+                <nav aria-label="Pagenavigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item a disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+        <div class="menu">
+            <h1>About</h1>
+            <div class="profile">
+                <img src="../dist/img/profiles/profile.JPG">
+            </div>
+            <div class="text">
+                <p>我是Ray 這是關於一個程式設計或是無聊寫寫的Blog</p>
+            </div>
+
+            <div class="tags">
+                <h1>Tags</h1>
+                {{range $item := .tags}}
+                    <a href="/blogs?tags={{$item.Value}}" class="badge badge-pill badge-primary">{{$item.Name}}</a>
+                {{end}}
+            </div>
+
+            <div class="article-select">
+                <h1>文章分類</h1>
+
+                <button class="btn btn-secondary dropdown-toggle dropdown" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    選擇分類
+                </button>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {{range $item := .tags}}
+                        <a class="dropdown-item" href="/blogs?tags={{$item.Value}}">{{$item.Name}}</a>
+                    {{end}}
+                </div>
+
+            </div>
+
+            <div class="article">
+                <h1>近期文章</h1>
+                <ul>
+                    {{range $item := .recentArticles}}
+                        <li>
+                            <a href="/blogs/{{$item.Id}}">{{$item.Title}}</a>
+                        </li>
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-clear"></div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer">
+        <div class="copyright">
+            <p>©2019 Ray's blog</p>
+        </div>
+    </div>
+</footer>
+
+
+<script src="../dist/lib/jquery/jquery.min.js"></script>
+<script src="../dist/lib/popper/popper.min.js"></script>
+<script src="../dist/lib/bootstrap-material-design/js/bootstrap-material-design.min.js"></script>
+</body>
+
+</html>
